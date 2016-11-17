@@ -37,14 +37,26 @@ namespace CookieBakery
             Thread Threadted = new Thread(new ThreadStart(cust.customerted));
             Thread Threadgreg = new Thread(new ThreadStart(cust.customergreg));
 
+            Bakery bake = new Bakery();
+            Thread Threadvanillacookie = new Thread(new ThreadStart(bake.vaillacookie));
+            Thread Threadchocolatecookie = new Thread(new ThreadStart(bake.chocolatecookie));
+            Thread Threadglutenfreecookie = new Thread(new ThreadStart(bake.glutenfreecookie));
 
             Threadfred.Start();
             Threadted.Start();
             Threadgreg.Start();
+            Threadvanillacookie.Start();
+            Threadchocolatecookie.Start();
+            Threadglutenfreecookie.Start();
 
             Console.ReadLine();
-            
 
+            //This is still abit buggy, need to press enter before i can Exit on escape-button
+            var key = Console.ReadKey();
+            if(key.Key == ConsoleKey.Escape)
+            {
+                Environment.Exit(0);
+            }
         }
 
 
