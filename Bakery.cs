@@ -5,6 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
+
+/**
+ * 
+ * Change name to from flavored cookies to "(Bakary's-name) cookie"
+ * 
+ * Add a random flawor to the mix:
+ * Vanilla, Chocolate, Glutenfree ++if we want more 
+ * 
+ * Cookies need to get a number that shows when they where "baked"
+ * 
+ * OBS!! minimum 12 cookies must be made before day is over!
+ * 
+ * */
+
 namespace CookieBakery
 {
     public class Bakery
@@ -15,7 +29,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("omnomnom Vanilla cookie");
+                Console.WriteLine("Vanilla cookie");
                 Thread.Sleep(15);
             }                
         }
@@ -24,7 +38,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("omnomnom Chocolate cookie");
+                Console.WriteLine("Chocolate cookie");
                 Thread.Sleep(15);
             }
         }
@@ -33,7 +47,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("omnomnom Glutenfree cookie");
+                Console.WriteLine("Glutenfree cookie");
                 Thread.Sleep(15);
             }
         }

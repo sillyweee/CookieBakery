@@ -26,12 +26,16 @@ namespace CookieBakery
      * Example every 100 millisec. (Number sligthy higher than backin time)
      * This Method needs this name because it says so in out asignment
      * 
+     * Text-line outcome shold be "coustomer-thread, bakery-thread, flavore-thread"
+     * 
      * */
     class Program
     {
 
         static void Main(string[] args)
         {
+
+            // Start(1)!! : This is test code that will be removed
             Customer cust = new Customer();
             Thread Threadfred = new Thread(new ThreadStart(cust.customerfred));
             Thread Threadted = new Thread(new ThreadStart(cust.customerted));
@@ -41,6 +45,7 @@ namespace CookieBakery
             Thread Threadvanillacookie = new Thread(new ThreadStart(bake.vaillacookie));
             Thread Threadchocolatecookie = new Thread(new ThreadStart(bake.chocolatecookie));
             Thread Threadglutenfreecookie = new Thread(new ThreadStart(bake.glutenfreecookie));
+            //End(1)!!
 
             Threadfred.Start();
             Threadted.Start();
@@ -51,7 +56,7 @@ namespace CookieBakery
 
             Console.ReadLine();
 
-            //This is still abit buggy, need to press enter before i can Exit on escape-button
+            //This is still buggy, need to press enter(key) before i can Exit on escape(key)
             var key = Console.ReadKey();
             if(key.Key == ConsoleKey.Escape)
             {

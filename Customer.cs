@@ -25,7 +25,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("Jeg er Fred");
+                Console.WriteLine("Fred received ");
                 Thread.Sleep(10);
             }
         }
@@ -34,7 +34,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("Jeg er Ted");
+                Console.WriteLine("Ted received");
                 Thread.Sleep(10);
             }
         }
@@ -43,7 +43,7 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("Jeg er Greg");
+                Console.WriteLine("Greg received");
                 Thread.Sleep(10);
             }
         }
