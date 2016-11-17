@@ -23,7 +23,7 @@ namespace CookieBakery
 
         public void customerfred()
         {
-            for(i = 0; i < 15; i++)
+            for (i = 0; i < 15; i++)
             {
                 Console.WriteLine("Jeg er Fred");
                 Thread.Sleep(2);
