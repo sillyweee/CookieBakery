@@ -26,7 +26,7 @@ namespace CookieBakery
             for (i = 0; i < 15; i++)
             {
                 Console.WriteLine("Fred received ");
-                Thread.Sleep(10);
+                Thread.Sleep(665);
             }
         }
 
@@ -34,8 +34,8 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("Ted received");
-                Thread.Sleep(10);
+                Console.WriteLine("Ted received ");
+                Thread.Sleep(665);
             }
         }
 
@@ -43,8 +43,8 @@ namespace CookieBakery
         {
             for (i = 0; i < 15; i++)
             {
-                Console.WriteLine("Greg received");
-                Thread.Sleep(10);
+                Console.WriteLine("Greg received ");
+                Thread.Sleep(665);
             }
         }
     }

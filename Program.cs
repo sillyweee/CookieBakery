@@ -18,7 +18,7 @@ namespace CookieBakery
      * If time, Make one spesific Glutenfree Cookie For "Need glutenfreeCookie Greg"
      * 
      * USE:
-     * Factory
+     * Factory  - - Cookie - Customer - Factory (Bakery?)
      * Designpattern
      * Singelton
      * 
@@ -35,33 +35,38 @@ namespace CookieBakery
         static void Main(string[] args)
         {
 
-            // Start(1)!! : This is test code that will be removed
+
             Customer cust = new Customer();
+            Bakery bake = new Bakery();
+
+            // Start(1)!! : This is test code that will be removed
             Thread Threadfred = new Thread(new ThreadStart(cust.customerfred));
             Thread Threadted = new Thread(new ThreadStart(cust.customerted));
             Thread Threadgreg = new Thread(new ThreadStart(cust.customergreg));
-
-            Bakery bake = new Bakery();
-            Thread Threadvanillacookie = new Thread(new ThreadStart(bake.vaillacookie));
-            Thread Threadchocolatecookie = new Thread(new ThreadStart(bake.chocolatecookie));
-            Thread Threadglutenfreecookie = new Thread(new ThreadStart(bake.glutenfreecookie));
+            Thread Threadmarta = new Thread(new ThreadStart(bake.martasbakery));
+            Thread Threadlittle = new Thread(new ThreadStart(bake.littlebakery));
+            Thread Threadorganic = new Thread(new ThreadStart(bake.organicbakery));
             //End(1)!!
 
             Threadfred.Start();
             Threadted.Start();
             Threadgreg.Start();
-            Threadvanillacookie.Start();
-            Threadchocolatecookie.Start();
-            Threadglutenfreecookie.Start();
+            Threadmarta.Start();
+            Threadlittle.Start();
+            Threadorganic.Start();
 
             Console.ReadLine();
 
             //This is still buggy, need to press enter(key) before i can Exit on escape(key)
+            /**
             var key = Console.ReadKey();
             if(key.Key == ConsoleKey.Escape)
             {
                 Environment.Exit(0);
             }
+            **/
+
+
         }
 
 

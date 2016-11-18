@@ -8,12 +8,14 @@ using System.Threading;
 
 /**
  * 
- * Change name to from flavored cookies to "(Bakary's-name) cookie"
+ * The cookies shows by #number, the order they are baked
+ * 
+ * The Bakery's name are logical and easy to find the code to, because 
+ * the name of the bakery is baked into the code
+ * 
  * 
  * Add a random flawor to the mix:
  * Vanilla, Chocolate, Glutenfree ++if we want more 
- * 
- * Cookies need to get a number that shows when they where "baked"
  * 
  * OBS!! minimum 12 cookies must be made before day is over!
  * 
@@ -25,32 +27,34 @@ namespace CookieBakery
     {
         public int i = 0;
 
-        public void vaillacookie()
+        public void martasbakery()
         {
-            for (i = 0; i < 15; i++)
+            for (i = 1; i < 15; i++)
             {
-                Console.WriteLine("Vanilla cookie");
-                Thread.Sleep(15);
+                Console.WriteLine("Marta's Bakery" + " cookie #" + i);
+                Thread.Sleep(1000);
             }                
         }
-
-        public void chocolatecookie()
+    
+        public void littlebakery()
         {
-            for (i = 0; i < 15; i++)
-            {
-                Console.WriteLine("Chocolate cookie");
-                Thread.Sleep(15);
+           for (i = 1; i < 15; i++)
+          {
+                Console.WriteLine("The Little Bakery" + " cookie #" + i);
+                Thread.Sleep(1000);
             }
         }
 
-        public void glutenfreecookie()
+        public void organicbakery()
         {
-            for (i = 0; i < 15; i++)
+            for (i = 1; i < 15; i++)
             {
-                Console.WriteLine("Glutenfree cookie");
-                Thread.Sleep(15);
+                Console.WriteLine("Organic Bakery" + " cookie #" + i);
+                Thread.Sleep(1000);
             }
         }
 
+
+    
     }
 }
