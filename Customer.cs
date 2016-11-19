@@ -20,31 +20,28 @@ namespace CookieBakery
     {
 
         public int i = 0;
+        private string[,] customername;
 
-        public void customerfred()
+        public string[,] Bakeryname
         {
-            for (i = 0; i < 15; i++)
+            get
             {
-                Console.WriteLine("Fred received ");
-                Thread.Sleep(665);
+                return customername;
+            }
+
+            set
+            {
+                customername = value;
             }
         }
 
-        public void customerted()
-        {
-            for (i = 0; i < 15; i++)
-            {
-                Console.WriteLine("Ted received ");
-                Thread.Sleep(665);
-            }
-        }
 
-        public void customergreg()
+        public void customercookie()
         {
-            for (i = 0; i < 15; i++)
+            for (i = 1; i < 20; i++)
             {
-                Console.WriteLine("Greg received ");
-                Thread.Sleep(665);
+                Console.WriteLine(customername + " received cookie #" + i);
+                Thread.Sleep(300);
             }
         }
     }

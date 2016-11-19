@@ -23,38 +23,32 @@ using System.Threading;
 
 namespace CookieBakery
 {
+
     public class Bakery
     {
         public int i = 0;
+        private string[,] bakeryname;
 
-        public void martasbakery()
+        public string[,] Bakeryname
         {
-            for (i = 1; i < 15; i++)
+            get
             {
-                Console.WriteLine("Marta's Bakery" + " cookie #" + i);
-                Thread.Sleep(1000);
-            }                
-        }
-    
-        public void littlebakery()
-        {
-           for (i = 1; i < 15; i++)
-          {
-                Console.WriteLine("The Little Bakery" + " cookie #" + i);
-                Thread.Sleep(1000);
+                return bakeryname;
+            }
+
+            set
+            {
+                bakeryname = value;
             }
         }
 
-        public void organicbakery()
+        public void cookiebakery()
         {
-            for (i = 1; i < 15; i++)
+            for (i = 1; i < 20; i++)
             {
-                Console.WriteLine("Organic Bakery" + " cookie #" + i);
-                Thread.Sleep(1000);
+                Console.WriteLine(Bakeryname + " Bakery cookie #" + i);
+                Thread.Sleep(500);
             }
         }
-
-
-    
     }
 }
