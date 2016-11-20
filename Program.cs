@@ -34,8 +34,6 @@ namespace CookieBakery
         const int CookieThreads = 3;
         static int[] sums = new int[CookieThreads];
 
-
-
         // The Lock placed here so we only get one at a time
 
         static void ProduceCookies()
@@ -56,6 +54,8 @@ namespace CookieBakery
 
       //  static void Customers()
 
+
+
 /**
  * This is the Custumer set-up 
  * 
@@ -63,6 +63,7 @@ namespace CookieBakery
  * Lock cookie from the (the first implemented lock in the code)
  * 
  * */
+
 
         static void Customer(Object threadCookie)   
         {
@@ -81,21 +82,21 @@ namespace CookieBakery
                 if (cookieToSum != -1)
                 {
                     mySum += cookieToSum;
-                    Console.WriteLine( " recived Bakerys Cookie #" + cookieToSum);
+                    Console.WriteLine(" received Bakerys Cookie #" + cookieToSum); //name='{0}'
                 }
             }
-
         }
 
-/**
-* Here is the last part of the Code
-* 
-* This is where the Cookie and Customer 
-* Methods/Classes are run(startet) from
-* 
-* */
 
-        static void Main()
+    /**
+    * Here is the last part of the Code
+    * 
+    * This is where the Cookie and Customer 
+    * Methods/Classes are run(startet) from
+    * 
+    * */
+
+    static void Main()
         {
             var producingThread = new Thread(ProduceCookies);
             producingThread.Start();
@@ -112,3 +113,24 @@ namespace CookieBakery
 
     }
 }
+
+/*
+        static void ArrayCustomers(Array arr)
+        {
+            Thread newThread = new Thread(Customer.GetName);
+            newThread.Start(25);
+
+            var n = new Customer();
+            var cust = new Customer();
+            newThread = new Thread(n.GetCustemoreName);
+            newThread.Start("The answer.");
+            
+            var threadfred = new Thread(cust.coustumerfred);
+            var threadted = new Thread(cust.coustumerted);
+            var threadgreg = new Thread(cust.coustumergreg);
+        }
+        public static GetName(object name)
+        {
+            Console.WindowLeft(30);
+        }
+    * */
