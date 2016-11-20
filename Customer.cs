@@ -10,7 +10,6 @@ namespace CookieBakery
     class Customer
     {
 
-
-
     }
 }
+

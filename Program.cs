@@ -36,7 +36,7 @@ namespace CookieBakery
 
 
 
-// The Lock placed here so we only get one at a time
+        // The Lock placed here so we only get one at a time
 
         static void ProduceCookies()
         {
@@ -64,7 +64,28 @@ namespace CookieBakery
  * 
  * */
 
+        static void Customer(Object threadCookie)   
+        {
+            DateTime startTime = DateTime.Now;
+            int mySum = 0;
+            while ((DateTime.Now - startTime).Seconds < 11)
+            {
+                int cookieToSum = -1;
+                lock (cookies)
+                {
+                    if (cookies.Count != 0)
+                    {
+                        cookieToSum = cookies.Dequeue();
+                    }
+                }
+                if (cookieToSum != -1)
+                {
+                    mySum += cookieToSum;
+                    Console.WriteLine( " recived Bakerys Cookie #" + cookieToSum);
+                }
+            }
 
+        }
 
 /**
 * Here is the last part of the Code
