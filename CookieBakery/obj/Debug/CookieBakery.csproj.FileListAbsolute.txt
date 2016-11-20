@@ -4,3 +4,9 @@ D:\Westerdals\2 år\PG3300 - Software Design\Innlevering\PG3300_Innlevering_Kode
 D:\Westerdals\2 år\PG3300 - Software Design\Innlevering\PG3300_Innlevering_Kode\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache
 D:\Westerdals\2 år\PG3300 - Software Design\Innlevering\PG3300_Innlevering_Kode\CookieBakery\CookieBakery\obj\Debug\CookieBakery.exe
 D:\Westerdals\2 år\PG3300 - Software Design\Innlevering\PG3300_Innlevering_Kode\CookieBakery\CookieBakery\obj\Debug\CookieBakery.pdb
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe.config
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\obj\Debug\CookieBakery.exe
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\obj\Debug\CookieBakery.pdb
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\bin\Debug\CookieBakery.exe
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\bin\Debug\CookieBakery.pdb
+D:\Emner\2. trinn\PG3300-1 16H Software Design\CookieBakery\CookieBakery\obj\Debug\CookieBakery.csprojResolveAssemblyReference.cache

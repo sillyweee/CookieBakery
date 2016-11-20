@@ -9,5 +9,9 @@ namespace CookieBakery
 {
     class Bakery
     {
+	    public Bakery()
+	    {
+		    
+	    }
     }
 }
