@@ -7,8 +7,9 @@ using System.Threading;
 
 namespace CookieBakery
 {
-    class Customer
+	public class Customer
     {
+<<<<<<< HEAD
         private int i = 0;
 
         public void coustumerfred(Object customernavn)
@@ -40,6 +41,18 @@ namespace CookieBakery
         }
 
 
+=======
+		public string Name { get; private set; }
+	    public Customer(string name)
+	    {
+		    Name = name;
+	    }
+
+	    public override string ToString()
+	    {
+		    return Name;
+	    }
+>>>>>>> origin/master
 
     }
 }
