@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bakery.cs" />
+    <Compile Include="Cookie.cs" />
+    <Compile Include="CookieType.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
