@@ -30,42 +30,64 @@ namespace CookieBakery
     * */
     class Program
     {
-
-        static void Main(string[] args)
+        static Queue<int> cookies = new Queue<int>();
+        static Random rand = new Random(50);
+        const int CookieThreads = 3;
+        static int[] sums = new int[CookieThreads];
+        static void ProduceCookies()
         {
-            Customer cust = new Customer();
-            Thread Threadcustomer = new Thread(new ThreadStart(cust.customercookie));
-            Bakery bake = new Bakery();
-            Thread Threadbakery = new Thread(new ThreadStart(bake.cookiebakery));
-
-
-
-            Threadcustomer.Start();
-            Threadbakery.Start();
-
-            Console.ReadLine();
-
-
-            //This is still buggy, need to press enter(key) before i can Exit on escape(key)
-            var key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Escape)
+            for (int i = 1; i < 24; i++)
             {
-                Environment.Exit(0);
+                int cookieToEnqueue = rand.Next(10);
+                Console.WriteLine("Bakery made cookie #" + cookieToEnqueue);
+                lock (cookies)
+                    cookies.Enqueue(cookieToEnqueue);
+                Thread.Sleep(500);
             }
+
         }
+        static void SumCookies(Object threadCookie)
 
-
-        /**
-        SellCookieTo(Customer customer)
         {
-            //text goes here
-        }
+            DateTime startTime = DateTime.Now;
+            int mySum = 0;
+            while ((DateTime.Now - startTime).Seconds < 11)
+            {
+                int cookieToSum = -1;
+                lock (cookies)
+                {
+                    if (cookies.Count != 0)
+                    {
+                        cookieToSum = cookies.Dequeue();
+                    }
+                }
+                if (cookieToSum != -1)
+                {
+                    mySum += cookieToSum;
+                    Console.WriteLine(" recived Bakerys Cookie #" + cookieToSum);
 
-        Console.Write("Bakery".PadRight(20));
-        Console.Write("Customer".PadLeft(20));
-      
-    **/
+                }
+            }
+            sums[(int)threadCookie] = mySum;
+        }
+        static void Main()
+        {
+            var producingThread = new Thread(ProduceCookies);
+            producingThread.Start();
+            Thread[] threads = new Thread[CookieThreads];
+            for (int i = 0; i < CookieThreads; i++)
+            {
+                threads[i] = new Thread(SumCookies);
+                threads[i].Start(i);
+            }
+            for (int i = 1; i < CookieThreads; i++)
+                threads[i].Join();
+            int totalSum = 0;
+            for (int i = 1; i < CookieThreads; i++)
+                totalSum += sums[i];
+            Console.WriteLine("Bakery closed for the day" + totalSum);
+            Console.ReadKey( );
+        }
 
     }
-
 }
