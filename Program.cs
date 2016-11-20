@@ -1,29 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace CookieBakery
 {
 /**
-		    * 
-		    * Has Customers Fred, Ted, and Greg
-		    * 
-		    * Implement flavors
-		    * 
-		    * If time, Make one spesific Glutenfree Cookie For "Need glutenfreeCookie Greg"
-		    * 
-		    * USE:
-		    * Factory DP
-		    * 
-		    * Fred, Ted and Greg makes calls to this thread through their own threads.
-		    * Example every 100 millisec. (Number sligthy higher than backin time)
-		    * This Method needs this name because it says so in out asignment
-		    * 
-		    * 
-		    * */
+			    * 
+			    * Has Customers Fred, Ted, and Greg
+			    * 
+			    * Implement flavors
+			    * 
+			    * If time, Make one spesific Glutenfree Cookie For "Need glutenfreeCookie Greg"
+			    * 
+			    * USE:
+			    * Factory DP
+			    * 
+			    * Fred, Ted and Greg makes calls to this thread through their own threads.
+			    * Example every 100 millisec. (Number sligthy higher than backin time)
+			    * This Method needs this name because it says so in out asignment
+			    * 
+			    * 
+			    * */
 
 	internal class Program
 	{
@@ -32,39 +29,35 @@ namespace CookieBakery
 		const int CookieThreads = 3;
 		static int[] sums = new int[CookieThreads];
 		*/
-		private static Bakery bakery;
-		private static List<Customer> customers;
-		private static Thread factoryThread;
-		private static Thread customerThread;
+		private static Bakery _bakery;
+		private static List<Customer> _customers;
+		private static Thread _factoryThread;
+		private static Thread _customerThread;
 
 		public static void Main()
 		{
-			
-			bakery = new Bakery("Mamma's");
+			_bakery = new Bakery("Mamma's");
 
-			customers = new List<Customer> {new Customer("Ted"), new Customer("Fred"), new Customer("Greg")};
+			_customers = new List<Customer> {new Customer("Ted"), new Customer("Fred"), new Customer("Greg")};
 
-			factoryThread = new Thread(new ThreadStart(bakery.ProduceCookies));
-			customerThread = new Thread(new ThreadStart(customerBuys));
+			_factoryThread = new Thread(_bakery.ProduceCookies);
+			_customerThread = new Thread(CustomerBuys);
 
-			factoryThread.Start();
-			customerThread.Start();
+			_factoryThread.Start();
+			_customerThread.Start();
 
-			factoryThread.Join();
-			customerThread.Join();
-
-
+			_factoryThread.Join();
+			_customerThread.Join();
 		}
 
-		private static void customerBuys()
+		private static void CustomerBuys()
 		{
 			Random rand = new Random();
-			while (factoryThread.IsAlive)
+			while (_factoryThread.IsAlive || _bakery.CookieQueue.Count > 0)
 			{
-				int index = rand.Next(customers.Count);
-				bakery.SellCookiesTo(customers[index]);
+				int index = rand.Next(_customers.Count);
+				_bakery.SellCookiesTo(_customers[index]);
 			}
-			
 		}
 	}
 }

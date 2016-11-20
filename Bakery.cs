@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
 
 namespace CookieBakery
@@ -11,26 +8,25 @@ namespace CookieBakery
 	{
 		private readonly object _syncLock = new object();
 
-		private Queue<Cookie> cookieQueue;
-		public string name { get; private set; }
+		public Queue<Cookie> CookieQueue { get; }
+		public string Name { get; private set; }
 
 		public Bakery(string bakeryName)
 		{
-			name = bakeryName;
-			cookieQueue = new Queue<Cookie>();
+			Name = bakeryName;
+			CookieQueue = new Queue<Cookie>();
 		}
-		
+
 		public void SellCookiesTo(Customer customer)
 		{
 			lock (_syncLock)
 			{
-				var soldCookie = cookieQueue.Dequeue();
+				var soldCookie = CookieQueue.Dequeue();
 				//Find a way to print this string with right justification
 				Console.WriteLine("{0} bought cookie #{1} with {2}",
 					customer, soldCookie.bakingOrder, soldCookie.type);
 			}
 			Thread.Sleep(850);
-
 		}
 
 		public void ProduceCookies()
@@ -38,7 +34,7 @@ namespace CookieBakery
 			Random rand = new Random();
 			CookieType choice;
 			Cookie randomCookie;
-			
+
 
 			for (int i = 1; i < 24; i++)
 			{
@@ -47,10 +43,10 @@ namespace CookieBakery
 					choice = (CookieType) rand.Next(0, 3);
 					randomCookie = factory(choice);
 					randomCookie.bakingOrder = i;
-					cookieQueue.Enqueue(randomCookie);
+					CookieQueue.Enqueue(randomCookie);
 				}
-				Console.WriteLine("Bakery {0} made cookie #{1} with {2}", 
-								name, randomCookie.bakingOrder, randomCookie.type);
+				Console.WriteLine("Bakery {0} made cookie #{1} with {2}",
+					Name, randomCookie.bakingOrder, randomCookie.type);
 				Thread.Sleep(500);
 			}
 		}

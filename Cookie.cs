@@ -9,6 +9,5 @@
 		{
 			type = cookieType;
 		}
-		
 	}
 }
