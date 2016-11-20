@@ -21,12 +21,25 @@ namespace CookieBakery
 		{
 			lock (_syncLock)
 			{
-				var soldCookie = CookieQueue.Dequeue();
-				//Find a way to print this string with right justification
-				Console.WriteLine("{0} bought cookie #{1} with {2}",
-					customer, soldCookie.bakingOrder, soldCookie.type);
+				string printMsg;
+				if (CookieQueue.Count == 0)
+				{
+					printMsg = string.Format("Sorry {0}, no cookies available yet!", customer);
+				}
+				else
+				{
+					var soldCookie = CookieQueue.Dequeue();
+					printMsg = string.Format("{0} bought cookie #{1} with {2}",
+						customer, soldCookie.bakingOrder, soldCookie.type);
+
+				}
+				Console.CursorLeft = Console.BufferWidth - printMsg.Length;
+				//Console.WriteLine("{0} bought cookie #{1} with {2}",customer, soldCookie.bakingOrder, soldCookie.type);
+				Console.WriteLine(printMsg);
 			}
-			Thread.Sleep(850);
+			Random rand = new Random();
+			int sleepTime = rand.Next(510, 700);
+			Thread.Sleep(sleepTime);
 		}
 
 		public void ProduceCookies()
@@ -45,6 +58,7 @@ namespace CookieBakery
 					randomCookie.bakingOrder = i;
 					CookieQueue.Enqueue(randomCookie);
 				}
+				Console.CursorLeft = 0;
 				Console.WriteLine("Bakery {0} made cookie #{1} with {2}",
 					Name, randomCookie.bakingOrder, randomCookie.type);
 				Thread.Sleep(500);
